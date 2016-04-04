@@ -6,10 +6,3 @@
     <%= current_lesson.subtitle %>
   </p>
 </div>
-
-<div class="clear"></div>
-<%= simple_form_for @photo, url: instructor_course_photos_path(@course) do |f| %>
-  
-  <%= f.input :caption %>
-  <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
-<% end %>
