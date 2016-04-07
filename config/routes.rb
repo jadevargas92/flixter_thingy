@@ -9,12 +9,11 @@ Flixter::Application.routes.draw do
     end
     resources :courses, only: [:new, :create, :show] do
       resources :sections, only: [:new, :create]
-      resources :photos, only: :create
+      
     end
 
     resources :courses, only: [:new, :create, :show] do
       resources :lessons, only: [:new, :create]
-      resources :photos, only: :create
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
