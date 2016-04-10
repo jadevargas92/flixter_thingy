@@ -1,13 +1,16 @@
 Flixter::Application.routes.draw do
   devise_for :users
+  resource :dashboard, only: [:show]
   root 'static_pages#index'
+  get 'privacy', to: 'static_pages#privacy'
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: :create
   end
   resources :lessons, only: [:show]
   namespace :instructor do
-    resources :sections, only: [] do
-      resources :lessons, only: [:new, :create] 
+    resources :lessons, only: [:update]
+    resources :sections, only: [:update] do
+      resources :lessons, only: [:create] 
     end
     resources :courses, only: [:new, :create, :show] do
       resources :sections, only: [:new, :create]
@@ -15,7 +18,7 @@ Flixter::Application.routes.draw do
     end
 
     resources :courses, only: [:new, :create, :show] do
-      resources :lessons, only: [:new, :create]
+      resources :lessons, only: [:create]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

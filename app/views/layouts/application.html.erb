@@ -18,7 +18,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Flixter</a>
+        <div class="navbar-brand"><%= link_to 'Flixter', root_path %>
+        </div>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,6 +29,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
+            <li><%= link_to 'My Dashboard', dashboard_path %></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign in', new_user_session_path %></li>
@@ -53,9 +55,43 @@
 
  <div id="footer">
     <div class="container">
-     <b>Teachers</b>
-      <br />
-      <%= link_to 'Teach a Course', new_instructor_course_path %>
+     <div class="col-xs-12 col-sm-3">
+        <b>Teachers</b>
+        <br />
+        <%= link_to 'Teach a Course', new_instructor_course_path %>
+        <br />
+        <%= link_to 'My Dashboard', dashboard_path %>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <b>About</b>
+        <br />
+        <%= link_to 'Team', '#' %>
+        <br />
+        <%= link_to 'Careers', '#' %>
+        <br />
+        <%= link_to 'Privacy Policy', privacy_path %>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <b>Contact</b>
+        <br />
+        jadevargas92@gmail.com
+        <br />
+        Madison WI, 53713
+      </div>
+      <div class="col-xs-12 col-sm-3 social">
+        <b>Social</b>
+        <br />
+        <br />
+        <%= link_to 'https://github.com/jadevargas92' do %>
+          <%= image_tag 'github.png', class: 'social-button' %>
+        <% end %>
+        <%= link_to 'https://www.facebook.com/jadevargas92' do %>
+          <%= image_tag 'facebook.png', class: 'social-button' %>
+        <% end %>
+        <%= link_to 'https://twitter.com/TheJadeVargas' do %>
+          <%= image_tag 'twitter.png', class: 'social-button' %>
+        <% end %>
+      </div>
     </div>
   </div>
 
